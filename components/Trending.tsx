@@ -1,8 +1,9 @@
 import { View, Text, FlatList } from 'react-native'
 import React from 'react'
+import Card from './Cards'
 
 interface PostType {
-  posts: [{ id: number }]
+  posts: { id: number }[]
 }
 const Trending = ({ posts }: PostType) => {
   return (
@@ -10,7 +11,7 @@ const Trending = ({ posts }: PostType) => {
       data={posts}
       keyExtractor={(post) => post.id.toString()}
       renderItem={({ item }) => (
-        <Text className='text-3xl text-white'>{item.id}</Text>
+       <Card post={item} />
       )
       }
       horizontal
